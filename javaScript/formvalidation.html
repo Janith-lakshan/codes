@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Submit Form</title>
+
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 5px;
+
+		}
+
+		.form-container{
+			margin-left: 25%;
+		}
+		fieldset{
+			width: 500px;
+			height: 400px;
+
+		}
+
+		#Submitbt{
+			color: red;
+			width: 100%;
+		}
+		h3{
+			background-color: gray;
+			color: black;
+			text-align: center;
+		}
+
+		#lerr{
+			color: red;
+		}
+	</style>
+
+	<script type="text/javascript">
+		
+		function Fvalidate() {
+
+
+                    var fname = document.forms["form1"]["fname"].value;
+                    var lname =document.forms['form1']['lname'].value;
+                    var email =document.forms['form1']['email'].value;
+                    var password=document.forms['form1']['Password'].value;
+                    var cPassword=document.forms['form1']['cPassword'].value;
+                    var age=document.forms['form1']['age'].value;
+                    var sex=document.forms['form1']['Gender'].value;
+                    var country=document.forms['form1']['country'].value;
+
+                   // document.write(fname);
+
+                 //fname
+
+                    if (fname == "" || fname == null) {
+                      alert("Fist Name is required");
+                      return false;
+                     
+                       }
+
+                    if (lname == "" || lname == null) {
+                      document.getElementById("lerr").innerHTML=" Last Name is required";  
+                      return false;
+                     
+                       }
+
+                 //email
+                 
+                 if (email == "" || email  == null) {
+
+                      document.getElementById("emerr").innerHTML=" Email is required"; 
+                      return false;
+                      }
+                 var atposition=email.indexOf("@");  
+                 var dotposition=email.lastIndexOf("."); 
+
+                 if (atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length){  
+                     
+                     document.getElementById("emerr").innerHTML="Email is invalid";  
+                    return false;  
+  } 
+
+
+                       }
+
+		                   
+	</script>
+</head>
+<body>
+
+<div class="form-container">
+	
+	<fieldset>
+		<h3>Registration Form</h3>
+    <form action="formvalidation.html " name="form1" onsubmit="return Fvalidate()" >
+	       <table>
+	       	<tr>
+	       		<td>First Name:</td>
+	       		<td><input type="text" name="fname"></td>
+	       	</tr>
+	       	<tr>
+	       		<td>Last Name:</td>
+	       		<td><input type="text" name="lname"> <span id="lerr"></span></td>
+	       	</tr>
+	       		<tr>
+	       		<td>Email :</td>
+	       		<td><input type="text" name="email"><span id="emerr"></span></td>
+	       	</tr>
+
+	       	<tr>
+	       		<td>Password:</td>
+	       		<td><input type="Password" name="Password"></td>
+	       	</tr>
+
+	       	<tr>
+	       		<td>Confirm Password :</td>
+	       		<td><input type="Password" name="cPassword"></td>
+	       	</tr>
+
+	       	<tr>
+	       		<td>Age :</td>
+	       		<td><input type="text" name="age"></td>
+	       	</tr>
+
+	       	<tr>
+	       		<td>Gender :</td>
+	       		<td><input type="radio" name="Gender" value="Male"><label for="Male">Male</label>
+                  <br>
+                  <input type="radio" name="Gender" value="Female"><label for="Male">Female</label>
+	       		</td>
+	       		
+	       	</tr>
+
+	       	<tr>
+	       		<td>Country :</td>
+	       		
+	       		<td>
+	       			<select name="country">
+	       		      <option name="country"  value="-1" selected> --select country--</option>
+	       		      <br>
+	       		      <option name="country" value="1">Sri Lanka</option>
+	       		      <br>
+	       		      <option name="country" value="2">USA</option>
+	       		      <br>
+	       		      <option name="country" value="3">UK</option>	
+	       		    </select>
+	       		</td>
+	       	</tr>
+	       
+           
+	       </table> 
+	       <br>     	
+           <input  id="Submitbt" type="Submit" name="Submit" value="Submit">
+	</form>
+	</fieldset>
+	
+
+</div>
+
+</body>
+</html>

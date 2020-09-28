@@ -1,0 +1,30 @@
+ String strName;
+        String strPassword;
+        String errmsg = " ";
+        Boolean validData = true;
+        
+        strName    = request.getParameter("name");
+        strPassword     = request.getParameter("password");
+        
+        Registry registry = new Registry();
+         
+        if (validData) {
+           
+            registry.setName(strName);
+            registry.setPassword(strPassword);
+            registryFacade.create(registry);
+             
+            request.setAttribute("name", strName);
+            request.setAttribute("password",  strPassword);
+
+            getServletContext()
+                .getRequestDispatcher("/RegistrationConfirmation.jsp")
+                .forward(request, response);
+        }
+        else {
+        request.setAttribute("errmsg", errmsg);
+        getServletContext()
+                .getRequestDispatcher("/registrationForm.jsp")
+                .forward(request, response);
+            
+        }
